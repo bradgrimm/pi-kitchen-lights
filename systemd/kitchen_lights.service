@@ -1,0 +1,11 @@
+[Unit]
+Description=pi-kitchen-lights
+
+[Service]
+Environment=WS2811_LIGHT_COUNT=10
+Environment=GOOGLE_PUBSUB_PROJECT_ID=<your-google-pubsub-project-id>
+Environment=GOOGLE_APPLICATION_CREDENTIALS=<your-google-application-json-credentials>
+ExecStart=/usr/local/bin/lights
+
+[Install]
+WantedBy=multi-user.target
