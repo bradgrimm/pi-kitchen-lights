@@ -1,0 +1,11 @@
+[Unit]
+Description=christmas-lights
+
+[Service]
+User=fpp
+Environment=GOOGLE_PROJECT_ID=<your-google-project-id>
+Environment=GOOGLE_APPLICATION_CREDENTIALS=/home/fpp/christmas-lights/google_credentials.json
+ExecStart=/usr/bin/python /home/fpp/christmas-lights/lights.py
+
+[Install]
+WantedBy=multi-user.target
