@@ -13,10 +13,14 @@ LOG_PATH = '/home/fpp/christmas-lights/christmas.log'
 def do_action(action):
     logging.info('Action: {}'.format(action))
     if action == 'on':
+        response = requests.get('http://fpp/fppxml.php?command=stopNow')
         response = requests.get('http://fpp/fppxml.php?command=startPlaylist&playList=Always_On&repeat=checked&playEntry=0&section=')
     elif action == 'start-show':
+        response = requests.get('http://fpp/fppxml.php?command=stopNow')
         response = requests.get('http://fpp/fppxml.php?command=startPlaylist&playList=Main%20Playlist&repeat=checked&playEntry=0&section=')
     elif action == 'off':
+        response = requests.get('http://fpp/fppxml.php?command=stopNow')
+        response = requests.get('http://fpp/fppxml.php?command=startPlaylist&playList=Turn_Off&playEntry=0&section=')
         response = requests.get('http://fpp/fppxml.php?command=stopGracefully')
     else:
         logging.warn('Unrecognized action: {}'.format(action))
